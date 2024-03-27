@@ -7,12 +7,13 @@ str_leistungswerte = werte.split(",")
 print("Konvertierte Liste:", str_leistungswerte)
 print(len(str_leistungswerte))
 
+wertSpeicher = 0
 zeitintervall = 1
 energie = 0
 hoehe = 300 # höhe...
 laenge = 800 # ...und laenge veraenerbar!
 maxzeit = 180
-maxwatt = 0.1 # Unbedingt noch aendern !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+maxwatt = 1 # Unbedingt noch aendern !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 counter = 0
 leistungswerte = []
 rueckwaertsmultiplikator = 1000
@@ -57,12 +58,13 @@ for stelle in leistungswerte:
 
 
 for x in leistungswerte:
-    energie += x * zeitintervall
+    wertSpeicher = x / rueckwaertsmultiplikator
+    energie += wertSpeicher * zeitintervall
 
-wirkungsgrad = 238/energie*100
-wirkungsgrad = int(wirkungsgrad)
 
 print("Die freigesetzte Energie sind ", energie ," Joule!")
+wirkungsgrad = energie/238*100
+wirkungsgrad = int(wirkungsgrad)
 print("Der Wirkungsgrad im vergleich zur potentiellen Lageenergie ist ", wirkungsgrad ,"%")
 
 root.mainloop()
