@@ -26,7 +26,7 @@ volt = (wert * 5.0) / 1024.0; // ACHTUNG: Max 5V Spannung anlegen!
 leistung = volt * volt / widerstand; // P = U² / R
 
 
-if (volt > 0) {
+if (volt > 0 && counter < 180) {
 
 leistungswerte[counter] = leistung * multiplikator; // Umwandlung in Integer
 
